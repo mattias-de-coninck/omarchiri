@@ -60,7 +60,15 @@ source $OMARCHY_INSTALL/development/firewall.sh
 show_logo slice 60
 show_subtext "Installing desktop tools [3/5]"
 source $OMARCHY_INSTALL/desktop/desktop.sh
-source $OMARCHY_INSTALL/desktop/hyprlandia.sh
+# Compositor selection
+source $OMARCHY_INSTALL/desktop/compositor-select.sh
+if [[ $OMARCHY_COMPOSITOR == "hyprlandia" ]]; then
+  source $OMARCHY_INSTALL/desktop/hyprlandia.sh
+elif [[ $OMARCHY_COMPOSITOR == "niri" ]]; then
+  source $OMARCHY_INSTALL/desktop/niri.sh
+else
+  echo "No valid compositor selected, skipping compositor install."
+fi
 source $OMARCHY_INSTALL/desktop/theme.sh
 source $OMARCHY_INSTALL/desktop/bluetooth.sh
 source $OMARCHY_INSTALL/desktop/asdcontrol.sh
