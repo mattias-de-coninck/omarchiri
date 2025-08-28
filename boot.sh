@@ -15,7 +15,7 @@ echo -e "\n$ansi_art\n"
 sudo pacman -Sy --noconfirm --needed git
 
 # Use custom repo if specified, otherwise default to basecamp/omarchy
-OMARCHY_REPO="${OMARCHY_REPO:-mattias-de-connick/omarchiri}"
+OMARCHY_REPO="${OMARCHY_REPO:-mattias-de-coninck/omarchiri}"
 
 echo -e "\nCloning Omarchy from: https://github.com/${OMARCHY_REPO}.git"
 rm -rf ~/.local/share/omarchy/
