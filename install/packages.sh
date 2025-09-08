@@ -40,7 +40,8 @@ sudo pacman -S --noconfirm --needed \
   gvfs-mtp \
   gvfs-smb \
   hypridle \
-  hyprland \
+  # hyprland \
+  niri \
   hyprland-qtutils \
   hyprlock \
   hyprpicker \

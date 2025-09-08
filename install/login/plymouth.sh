@@ -107,7 +107,7 @@ PartOf=graphical.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/seamless-login uwsm start -- hyprland.desktop
+ExecStart=/usr/local/bin/seamless-login niri
 Restart=always
 RestartSec=2
 StartLimitIntervalSec=30
