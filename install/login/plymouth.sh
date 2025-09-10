@@ -107,6 +107,13 @@ PartOf=graphical.target
 
 [Service]
 Type=simple
+Environment="XDG_SESSION_TYPE=wayland"
+Environment="XDG_CURRENT_DESKTOP=niri"
+Environment="XDG_RUNTIME_DIR=/run/user/$(id -u)"
+Environment="WAYLAND_DISPLAY=wayland-1"
+Environment="DISPLAY=:1"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus"
+ExecStartPre=/usr/bin/dbus-launch --sh-syntax --exit-with-session
 ExecStart=/usr/local/bin/seamless-login niri
 Restart=always
 RestartSec=2
@@ -150,4 +157,15 @@ fi
 # Disable getty@tty1.service only if not already disabled
 if ! systemctl is-enabled getty@tty1.service | grep -q disabled; then
   sudo systemctl disable getty@tty1.service
+fi
+
+# Create niri session file if it doesn't exist
+if [ ! -f /usr/share/wayland-sessions/niri.desktop ]; then
+  sudo tee /usr/share/wayland-sessions/niri.desktop <<EOF
+[Desktop Entry]
+Name=Niri
+Comment=A minimal Wayland compositor
+Exec=niri
+Type=Application
+EOF
 fi
