@@ -41,6 +41,7 @@ sudo pacman -S --noconfirm --needed \
   gvfs-smb \
   hypridle \
   niri \
+  xwayland-satellite \
   hyprland-qtutils \
   hyprlock \
   hyprpicker \
